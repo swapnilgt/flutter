@@ -1,7 +1,9 @@
 import 'dart:math';
 
 class GenerateRandDice {
+  final randGenerator = Random();
+
   int getDiceRandNumbre() {
-    return Random.secure().nextInt(6) + 1;
+    return randGenerator.nextInt(6) + 1;
   }
 }

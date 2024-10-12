@@ -1,6 +1,8 @@
 import 'package:first_app/usecases/generate_rand_dice.dart';
 import 'package:flutter/material.dart';
 
+final diceGenerator = GenerateRandDice();
+
 class DiceRoller extends StatefulWidget {
   const DiceRoller({super.key});
 
@@ -15,7 +17,7 @@ class _DiceRollerState extends State<DiceRoller> {
 
   void rollDice() {
     setState(() {
-      currDiceRole = GenerateRandDice().getDiceRandNumbre();
+      currDiceRole = diceGenerator.getDiceRandNumbre();
     });
   }
 
