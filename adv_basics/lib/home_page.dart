@@ -30,13 +30,14 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 24.0,
             ),
-            OutlinedButton(
+            OutlinedButton.icon(
               onPressed: () {},
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
               ),
-              child: const Text(
-                "Start Quix",
+              icon: const Icon(Icons.arrow_right_alt),
+              label: const Text(
+                "Start Quiz",
               ),
             ),
           ],
