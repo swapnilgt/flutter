@@ -11,31 +11,11 @@ class DiceRoller extends StatefulWidget {
 }
 
 class _DiceRollerState extends State<DiceRoller> {
-  var activeDiceImage = 'assets/images/dice-2.png';
+  var currDiceRole = 2;
 
   void rollDice() {
     setState(() {
-      var diceNum = GenerateRandDice().getDiceRandNumbre();
-      switch (diceNum) {
-        case 0:
-          activeDiceImage = 'assets/images/dice-1.png';
-          break;
-        case 1:
-          activeDiceImage = 'assets/images/dice-2.png';
-          break;
-        case 2:
-          activeDiceImage = 'assets/images/dice-3.png';
-          break;
-        case 3:
-          activeDiceImage = 'assets/images/dice-4.png';
-          break;
-        case 4:
-          activeDiceImage = 'assets/images/dice-5.png';
-          break;
-        case 5:
-          activeDiceImage = 'assets/images/dice-6.png';
-        default:
-      }
+      currDiceRole = GenerateRandDice().getDiceRandNumbre();
     });
   }
 
@@ -45,7 +25,7 @@ class _DiceRollerState extends State<DiceRoller> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          activeDiceImage,
+          'assets/images/dice-$currDiceRole.png',
           width: 200,
         ),
         TextButton(

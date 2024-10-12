@@ -7,7 +7,7 @@ void main() {
     () {
       int expectedValue = GenerateRandDice().getDiceRandNumbre();
       bool correct = false;
-      if(expectedValue < 6 && expectedValue >=0) {
+      if (expectedValue < 6 && expectedValue >= 0) {
         correct = true;
       }
       expect(true, correct);
