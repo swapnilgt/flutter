@@ -1,5 +1,5 @@
 import 'package:adv_basics/data/questions.dart';
-import 'package:adv_basics/question_widget.dart';
+import 'package:adv_basics/ui/questions/question_widget.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
