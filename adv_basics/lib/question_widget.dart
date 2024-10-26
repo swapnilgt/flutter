@@ -25,7 +25,7 @@ class QuestionWidget extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          ...quizQuestion.answers.map(
+          ...quizQuestion.getShuffledAnswers().map(
             (item) {
               return AnswerButton(
                 onPressed: () {},

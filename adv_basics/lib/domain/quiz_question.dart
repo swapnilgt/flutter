@@ -5,4 +5,10 @@ class QuizQuestion {
   final String text;
   final List<String> answers;
 
+  List<String> getShuffledAnswers() {
+    final listCopy = List.of(answers);
+    listCopy.shuffle();
+    return listCopy;
+  }
+
 }
