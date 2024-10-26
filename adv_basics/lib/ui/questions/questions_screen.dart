@@ -3,7 +3,12 @@ import 'package:adv_basics/ui/questions/question_widget.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen(
+      {super.key, required this.onSelectAnswer, required this.quizCompleted});
+
+  final void Function(String answer) onSelectAnswer;
+
+  final void Function() quizCompleted;
 
   @override
   State<QuestionsScreen> createState() {
@@ -14,9 +19,17 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestion = 0;
 
-  void handleQuestionClick() {
+  void handleQuestionClick(String chosenAnswer) {
     setState(() {
-      currentQuestion++;
+      // checking the length.
+      if (currentQuestion < questions.length - 1) {
+        // passing answer to the quiz.
+        widget.onSelectAnswer(chosenAnswer);
+        currentQuestion++;
+      } else {
+        // redirect.
+        widget.quizCompleted();
+      }
     });
   }
 
@@ -29,7 +42,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         children: [
           QuestionWidget(
             quizQuestion: questions[currentQuestion],
-            onClickAnswer: handleQuestionClick,
+            onSelectAnswer: handleQuestionClick,
           ),
         ],
       ),
