@@ -1,3 +1,4 @@
+import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/domain/quiz_question.dart';
 import 'package:flutter/material.dart';
 
@@ -9,22 +10,24 @@ class QuestionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(quizQuestion.text),
+        Text(
+          quizQuestion.text,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
         const SizedBox(
           height: 30,
         ),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text('Answer 1'),
-        ),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text('Answer 2'),
-        ),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text('Answer 3'),
+        ...quizQuestion.answers.map(
+          (item) {
+            return AnswerButton(
+              onPressed: () {},
+              buttonText: item,
+            );
+          },
         ),
       ],
     );
