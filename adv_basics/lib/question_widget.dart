@@ -9,27 +9,32 @@ class QuestionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          quizQuestion.text,
-          style: const TextStyle(
-            color: Colors.white,
+    return Container(
+      margin: const EdgeInsets.all(40),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            quizQuestion.text,
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        ...quizQuestion.answers.map(
-          (item) {
-            return AnswerButton(
-              onPressed: () {},
-              buttonText: item,
-            );
-          },
-        ),
-      ],
+          const SizedBox(
+            height: 30,
+          ),
+          ...quizQuestion.answers.map(
+            (item) {
+              return AnswerButton(
+                onPressed: () {},
+                buttonText: item,
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
