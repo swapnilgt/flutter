@@ -3,7 +3,9 @@ import 'package:adv_basics/domain/quiz_question.dart';
 import 'package:flutter/material.dart';
 
 class QuestionWidget extends StatelessWidget {
-  const QuestionWidget({super.key, required this.quizQuestion});
+  const QuestionWidget({super.key, required this.quizQuestion, required this.onClickAnswer});
+
+  final void Function() onClickAnswer;
 
   final QuizQuestion quizQuestion;
 
@@ -28,7 +30,7 @@ class QuestionWidget extends StatelessWidget {
           ...quizQuestion.getShuffledAnswers().map(
             (item) {
               return AnswerButton(
-                onPressed: () {},
+                onPressed: onClickAnswer,
                 buttonText: item,
               );
             },

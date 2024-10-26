@@ -28,7 +28,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           QuestionWidget(
-            quizQuestion: questions[0],
+            quizQuestion: questions[currentQuestion],
+            onClickAnswer: handleQuestionClick,
           ),
         ],
       ),
