@@ -21,6 +21,8 @@ class QuestionWidget extends StatelessWidget {
             quizQuestion.text,
             style: const TextStyle(
               color: Colors.white,
+              fontSize: 30,
+              fontFamily: ////
             ),
             textAlign: TextAlign.center,
           ),
