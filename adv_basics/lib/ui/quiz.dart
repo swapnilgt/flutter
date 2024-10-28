@@ -1,3 +1,4 @@
+import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/ui/app_background.dart';
 import 'package:adv_basics/ui/home_page.dart';
 import 'package:adv_basics/ui/questions/questions_screen.dart';
@@ -16,6 +17,7 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
+  int corectlyAnswered = 0;
 
   @override
   void initState() {
@@ -28,6 +30,14 @@ class _QuizState extends State<Quiz> {
   }
 
   void onQuizCompleted() {
+    // computing the correct answers.
+    /*for(int i = 0; i < questions.length; i++) {
+      
+      if(questions[i].answers[0] == selectedAnswers[i]){
+        corectlyAnswered++;
+      }
+    }*/
+
     setState(() {
       activeScreen = 'result-screen';
     });
@@ -51,7 +61,7 @@ class _QuizState extends State<Quiz> {
         quizCompleted: onQuizCompleted,
       );
     } else if(activeScreen == 'result-screen') {
-      screenWidget = ResultScreen(chosenAnswers: selectedAnswers,);
+      screenWidget = ResultScreen(chosenAnswers: selectedAnswers, correctlyAnswered: corectlyAnswered,);
     } else {
       throw Exception("In correct value for active screen $activeScreen");
     }

@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.chosenAnswers});
+  const ResultScreen({super.key, required this.chosenAnswers, required this.correctlyAnswered});
 
   final List<String> chosenAnswers;
+  final int correctlyAnswered;
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Here is the result",
+              "You have answered $correctlyAnswered questions correctly out of ${chosenAnswers.length}",
               style: GoogleFonts.lato(
                 color: const Color.fromARGB(255, 202, 152, 240),
                 fontSize: 25,
@@ -28,6 +30,7 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 30,),
             QuestionSummary(
               summaryData: SummaryDateUseCase().getSummaryData(chosenAnswers),
+
             ),
             const SizedBox(height: 30,),
           ],
