@@ -21,10 +21,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   void handleQuestionClick(String chosenAnswer) {
     setState(() {
+      // Adding answer to the list.
+      widget.onSelectAnswer(chosenAnswer);
       // checking the length.
       if (currentQuestion < questions.length - 1) {
         // passing answer to the quiz.
-        widget.onSelectAnswer(chosenAnswer);
         currentQuestion++;
       } else {
         // redirect.

@@ -31,12 +31,12 @@ class _QuizState extends State<Quiz> {
 
   void onQuizCompleted() {
     // computing the correct answers.
-    /*for(int i = 0; i < questions.length; i++) {
+    for(int i = 0; i < questions.length; i++) {
       
       if(questions[i].answers[0] == selectedAnswers[i]){
         corectlyAnswered++;
       }
-    }*/
+    }
 
     setState(() {
       activeScreen = 'result-screen';
