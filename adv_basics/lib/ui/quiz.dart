@@ -29,11 +29,18 @@ class _QuizState extends State<Quiz> {
     selectedAnswers.add(answer);
   }
 
+  void onRestartClicked() {
+    corectlyAnswered = 0;
+    selectedAnswers = [];
+    setState(() {
+      activeScreen = 'start-screen';
+    });
+  }
+
   void onQuizCompleted() {
     // computing the correct answers.
-    for(int i = 0; i < questions.length; i++) {
-      
-      if(questions[i].answers[0] == selectedAnswers[i]){
+    for (int i = 0; i < questions.length; i++) {
+      if (questions[i].answers[0] == selectedAnswers[i]) {
         corectlyAnswered++;
       }
     }
@@ -53,15 +60,19 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     Widget screenWidget;
 
-    if(activeScreen == 'start-screen') {
+    if (activeScreen == 'start-screen') {
       screenWidget = HomePage(switchScreen);
     } else if (activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen(
         onSelectAnswer: chooseAnswer,
         quizCompleted: onQuizCompleted,
       );
-    } else if(activeScreen == 'result-screen') {
-      screenWidget = ResultScreen(chosenAnswers: selectedAnswers, correctlyAnswered: corectlyAnswered,);
+    } else if (activeScreen == 'result-screen') {
+      screenWidget = ResultScreen(
+        chosenAnswers: selectedAnswers,
+        correctlyAnswered: corectlyAnswered,
+        onRestartClicked: onRestartClicked,
+      );
     } else {
       throw Exception("In correct value for active screen $activeScreen");
     }

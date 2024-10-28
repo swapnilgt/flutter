@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.chosenAnswers, required this.correctlyAnswered});
+  const ResultScreen({super.key, required this.chosenAnswers, required this.correctlyAnswered, required this.onRestartClicked});
 
   final List<String> chosenAnswers;
   final int correctlyAnswered;
+  final void Function() onRestartClicked;
 
 
   @override
@@ -23,9 +24,10 @@ class ResultScreen extends StatelessWidget {
               "You have answered $correctlyAnswered questions correctly out of ${chosenAnswers.length}",
               style: GoogleFonts.lato(
                 color: const Color.fromARGB(255, 202, 152, 240),
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30,),
             QuestionSummary(
@@ -33,7 +35,7 @@ class ResultScreen extends StatelessWidget {
 
             ),
             const SizedBox(height: 30,),
-            TextButton(onPressed: () {}, child: const Text("Restart Quiz"))
+            TextButton(onPressed: onRestartClicked, child: const Text("Restart Quiz"))
           ],
         ),
       ),
