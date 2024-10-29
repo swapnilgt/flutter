@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.chosenAnswers, required this.correctlyAnswered, required this.onRestartClicked});
+  const ResultScreen(
+      {super.key,
+      required this.chosenAnswers,
+      required this.correctlyAnswered,
+      required this.onRestartClicked});
 
   final List<String> chosenAnswers;
   final int correctlyAnswered;
   final void Function() onRestartClicked;
-
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +32,23 @@ class ResultScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             QuestionSummary(
               summaryData: SummaryDateUseCase().getSummaryData(chosenAnswers),
-
             ),
-            const SizedBox(height: 30,),
-            TextButton(onPressed: onRestartClicked, child: const Text("Restart Quiz"))
+            const SizedBox(
+              height: 30,
+            ),
+            TextButton.icon(
+              onPressed: onRestartClicked,
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+              label: const Text("Restart Quiz"),
+              icon: const Icon(Icons.refresh),
+            )
           ],
         ),
       ),
