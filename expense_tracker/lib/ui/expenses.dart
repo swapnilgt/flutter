@@ -34,6 +34,14 @@ class _ExpenseState extends State<Expenses> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+          )
+        ],
+      ),
       body: AppBackground(
         child: activeWidget!,
       ),
