@@ -49,13 +49,21 @@ class _ExpenseState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     if (activeScreen == 'start-screen') {
+      Widget mainContent = const Expanded(
+        child: Center(
+          child: Text('No expenses found. Start adding some!'),
+        ),
+      );
+      if (registeredExpenses.isNotEmpty) {
+        mainContent = ExpensesList(
+          expenseList: registeredExpenses,
+          removeExpense: _removeExpense,
+        );
+      }
       activeWidget = Column(
         children: [
           Text('The list'),
-          ExpensesList(
-            expenseList: registeredExpenses,
-            removeExpense: _removeExpense,
-          ),
+          mainContent,
         ],
       );
     } else {
