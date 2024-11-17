@@ -40,13 +40,22 @@ class _ExpenseState extends State<Expenses> {
     });
   }
 
+  void _removeExpense(Expense expense) {
+    setState(() {
+      registeredExpenses.remove(expense);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     if (activeScreen == 'start-screen') {
       activeWidget = Column(
         children: [
           Text('The list'),
-          ExpensesList(expenseList: registeredExpenses),
+          ExpensesList(
+            expenseList: registeredExpenses,
+            removeExpense: _removeExpense,
+          ),
         ],
       );
     } else {
