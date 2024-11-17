@@ -1,6 +1,7 @@
 import 'package:expense_tracker/data/dummy_expenese.dart';
 import 'package:expense_tracker/domain/models/expense.dart';
 import 'package:expense_tracker/ui/app_background.dart';
+import 'package:expense_tracker/ui/expense_chart/chart.dart';
 import 'package:expense_tracker/ui/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/ui/new_expense/new_expense.dart';
 import 'package:flutter/material.dart';
@@ -80,7 +81,7 @@ class _ExpenseState extends State<Expenses> {
       }
       activeWidget = Column(
         children: [
-          Text('The list'),
+          Chart(expenses: registeredExpenses),
           mainContent,
         ],
       );
