@@ -8,11 +8,11 @@ class AppBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromARGB(255, 255, 255, 255),
-            Color.fromARGB(255, 255, 255, 255),
+            Color.fromARGB(0, 1, 1, 1),
+            Color.fromARGB(0, 1, 1, 1),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
