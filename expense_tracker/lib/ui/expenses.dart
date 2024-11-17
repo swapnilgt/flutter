@@ -53,7 +53,10 @@ class _ExpenseState extends State<Expenses> {
           label: 'Undo',
           onPressed: () {
             setState(() {
-              registeredExpenses.insert(expenseIndex, expense);
+              registeredExpenses.insert(
+                expenseIndex,
+                expense,
+              );
             });
           },
         ),
