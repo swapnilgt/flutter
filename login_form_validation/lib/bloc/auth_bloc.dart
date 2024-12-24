@@ -42,4 +42,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     });
   }
+
+  @override
+  void onChange(Change<AuthState> change) {
+    super.onChange(change);
+    print('AuthBloc change - $change');
+  }
+
+  @override
+  void onTransition(Transition<AuthEvent, AuthState> transition) {
+    super.onTransition(transition);
+    print('AuthBloc transition - $transition');
+  }
+
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    super.onError(error, stackTrace);
+    print('AuthBloc error - $error');
+  }
 }
