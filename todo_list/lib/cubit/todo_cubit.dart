@@ -7,6 +7,9 @@ class TodoCubit extends Cubit<List<ToDo>> {
   TodoCubit() : super([]);
 
   void addTodo(String title) {
+    if (title.isEmpty) {
+      addError('Title cannot be empty');
+    }
     final todo = ToDo(
       name: title,
       createdAt: DateTime.now(),
@@ -19,5 +22,11 @@ class TodoCubit extends Cubit<List<ToDo>> {
     // print change
     super.onChange(change);
     print(change);
+  }
+
+  @override
+  void addError(Object error, [StackTrace? stackTrace]) {
+    super.addError(error, stackTrace);
+    print(error);
   }
 }
