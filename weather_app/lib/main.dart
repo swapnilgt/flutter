@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
     return RepositoryProvider(
       create: (context) => WeatherRepository(WeatherDataProvider()),
       child: BlocProvider(
-        create: (context) => WeatherBloc(context.read<WeatherRepository>()),
+        create: (context) => WeatherBloc(
+          context.read<WeatherRepository>(),
+        ),
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(useMaterial3: true),
